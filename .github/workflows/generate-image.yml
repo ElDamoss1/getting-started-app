@@ -1,12 +1,24 @@
 name: package-getting-started-app
-on : [push]
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   package-getting-started-app:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
+      - name: Check the Code
+        run: |
+          # Ajoutez vos étapes de vérification du code ici
+          # Par exemple, linting ou analyse statique
+          echo "Vérification du code..."
 
+      - name: Build and Tag Image
+        run: |
+          # Ajoutez vos étapes de construction et d'étiquetage de l'image ici
+          # Par exemple, construire une image Docker
+          echo "Construction et étiquetage de l'image..."
 
-# - check le code
-# - build et tag image
-# - 
-    
+      # Ajoutez toutes les étapes supplémentaires nécessaires
+
