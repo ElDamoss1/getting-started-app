@@ -1,1 +1,12 @@
+name: package-getting-started-app
+on : [push]
+jobs:
+  package-getting-started-app:
+    runs-on: unbuntu-latest
+    steps:
 
+
+# - check le code
+# - build et tag image
+# - 
+    
