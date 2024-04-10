@@ -23,7 +23,7 @@ jobs:
 
       - name: Push Image to Docker Hub
         run: |
-          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          docker login -u damien.vigouroux@viacesi.fr -p qo2Z#%2d8#VKgkEf
           docker push myrepo/myapp:latest
           echo "Image pushed to Docker Hub."
 
