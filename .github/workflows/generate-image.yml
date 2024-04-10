@@ -10,15 +10,29 @@ jobs:
     steps:
       - name: Check the Code
         run: |
-          # Ajoutez vos étapes de vérification du code ici
-          # Par exemple, linting ou analyse statique
-          echo "Vérification du code..."
+          npm install
+          npm run lint
+          npm test
+          echo "Code verification complete."
 
       - name: Build and Tag Image
         run: |
-          # Ajoutez vos étapes de construction et d'étiquetage de l'image ici
-          # Par exemple, construire une image Docker
-          echo "Construction et étiquetage de l'image..."
+          docker build -t myapp:latest .
+          docker tag myapp:latest myrepo/myapp:latest
+          echo "Image built and tagged."
 
-      # Ajoutez toutes les étapes supplémentaires nécessaires
+      - name: Push Image to Docker Hub
+        run: |
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          docker push myrepo/myapp:latest
+          echo "Image pushed to Docker Hub."
 
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f deployment.yaml
+          echo "Application deployed to Kubernetes."
+
+      - name: Run Integration Tests
+        run: |
+          # Run integration tests against deployed application
+          echo "Running integration tests..."
